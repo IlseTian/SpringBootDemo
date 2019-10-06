@@ -11,20 +11,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * 统一异常处理类
- * 
- * @author xiangze
  *
+ * @author xiangze
  */
-@ControllerAdvice
+@ControllerAdvice//表示是统一异常处理类
 public class GlobalExceptionHandler {
 
-	@ExceptionHandler(value = Exception.class)
-	@ResponseBody
-	public Map<String, Object> exceptionHandler(HttpServletRequest req, Exception e) throws Exception {
-		Map<String, Object> modelMap = new HashMap<String, Object>();
-		modelMap.put("success", false);
-		modelMap.put("errMsg", e.getMessage());
-		return modelMap;
-	}
+    @ExceptionHandler(value = Exception.class)
+    @ResponseBody
+    public Map<String, Object> exceptionHandler(HttpServletRequest req, Exception e) throws Exception {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        modelMap.put("success", false);
+        modelMap.put("errMsg", e.getMessage());
+        return modelMap;
+    }
 
 }
